@@ -4,6 +4,7 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to={'/'} className={'font-semibold text-[18px]'}>Home</NavLink></li>
         <li><NavLink to={'/allRecipes'} className={'font-semibold text-[18px]'}>All Recipes</NavLink></li>
+        <li><NavLink to={'/addRecipes'} className={'font-semibold text-[18px]'}>Add Recipes</NavLink></li>
     </>
     return (
         <div className='max-w-7xl mx-auto'>

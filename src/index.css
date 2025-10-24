@@ -3,6 +3,26 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@plugin "daisyui/theme" {
+    name: "light";
+}
+
+@plugin "daisyui/theme" {
+    name: "dark";
+    prefersdark: true;
+}
+
+[data-theme="light"] {
+  --color-primary: #150100;  
+  --color-secondary: #410300;
+}
+
+[data-theme="dark"] {
+  --color-primary: #fbe6e5;
+  --color-secondary: #f3b6b2;
+  --base-content: #ffffff; 
+}
+
 .active {
     /* color: #d90c00 ; */
     color: #ec6052;
