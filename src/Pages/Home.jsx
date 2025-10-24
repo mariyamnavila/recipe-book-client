@@ -1,9 +1,8 @@
+import Header from "../Components/HomeLayout/Header";
 
 const Home = () => {
     return (
-        <div>
-            lala
-        </div>
+        <Header></Header>
     );
 };
 

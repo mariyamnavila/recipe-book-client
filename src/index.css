@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap');
+
 @import "tailwindcss";
 @plugin "daisyui";
 
-.active{
+.active {
     /* color: #d90c00 ; */
-    color: #ec6052 ;
+    color: #ec6052;
     text-decoration: underline;
+}
+
+body {
+    font-family: "Afacad", sans-serif;
 }
