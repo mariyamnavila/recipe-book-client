@@ -106,7 +106,7 @@ const AddRecipes = () => {
                     <div>
                         <fieldset className="fieldset mx-6">
                             <label className="label font-bold text-[16px] text-primary">Photo URL</label>
-                            <input type="text" name="photoURL" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe photo URL" />
+                            <input type="text" name="image" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe photo URL" />
                         </fieldset>
                     </div>
                     <button className="btn bg-[#e03c32] text-white my-3 mx-auto block">Add Recipe</button>

@@ -15,11 +15,14 @@
 [data-theme="light"] {
   --color-primary: #150100;  
   --color-secondary: #410300;
+  --color-base-200: #868686e7;
+
 }
 
 [data-theme="dark"] {
   --color-primary: #fbe6e5;
   --color-secondary: #f3b6b2;
+  --color-base-200: #e0e0e0;
   --base-content: #ffffff; 
 }
 
@@ -31,4 +34,22 @@
 
 body {
     font-family: "Afacad", sans-serif;
+    /* background-color: white; */
+}
+
+.swiper-button-next {
+  position: absolute !important;
+  right: -25px !important;
+  background-color: #f3b6b2;
+  color: #f3b6b2 !important;
+  border-radius: 20px;
+  /* padding: 5px; */
+  z-index: 10;
+}
+
+.swiper-button-prev {
+  left: -25px !important;
+  background-color: #f3b6b2;
+  color: #f3b6b2 !important;
+  border-radius: 20px;
 }
