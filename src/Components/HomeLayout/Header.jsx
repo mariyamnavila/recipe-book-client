@@ -12,8 +12,8 @@ const Header = () => {
                 <img className='absolute top-20' src={chili1} alt="" />
                 <img className='absolute bottom-0' src={fire} alt="" />
             </div>
-            <div className="max-w-7xl mx-auto py-[150px] flex relative">
-                <div className="relative">
+            <div className="max-w-7xl mx-auto py-[150px] flex flex-col md:flex-row relative">
+                <div className="relative ">
                     <div className="space-y-4 z-20 relative pt-12 ml-7">
                         <Fade direction='up' cascade damping={0.3} triggerOnce>
                             <p className="text-[#dc2419] text-2xl font-semibold">Discover flavors that feel like home.</p>
@@ -36,10 +36,10 @@ const Header = () => {
                         </Fade>
                     </div>
                     <Slide direction='right' fraction={0.8} triggerOnce>
-                        <h1 className="text-[#ffffff5e] text-[180px] ml-8 font-bold -bottom-7 relative">Recipe Paradise</h1>
+                        <h1 className="text-[#ffffff5e] text-8xl md:text-[180px] ml-8 font-bold -bottom-7 relative">Recipe Paradise</h1>
                     </Slide>
                 </div>
-                <div className='absolute z-0 right-0'>
+                <div className='absolute z-0 right-0 bottom-40 md:bottom-0'>
                     <img className='w-[600px]' src={chicken} alt="" />
                 </div>
             </div>
