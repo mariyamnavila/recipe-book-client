@@ -36,7 +36,7 @@ const Header = () => {
                         </Fade>
                     </div>
                     <Slide direction='right' fraction={0.8} triggerOnce>
-                        <h1 className="text-[#ffffff5e] text-8xl md:text-[180px] ml-8 font-bold -bottom-7 relative">Recipe Paradise</h1>
+                        <h1 className="text-[#ffffff5e] text-7xl md:text-[180px] ml-8 font-bold -bottom-7 relative">Recipe Paradise</h1>
                     </Slide>
                 </div>
                 <div className='absolute z-0 right-0 bottom-40 md:bottom-0'>

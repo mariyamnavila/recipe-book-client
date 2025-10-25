@@ -1,3 +1,4 @@
+import ContactUs from "../Components/HomeLayout/ContactUs";
 import Cooking from "../Components/HomeLayout/Cooking";
 import Featured from "../Components/HomeLayout/Featured";
 import Header from "../Components/HomeLayout/Header";
@@ -10,6 +11,7 @@ const Home = () => {
             <Featured></Featured>
             <Cooking></Cooking>
             <Popular></Popular>
+            <ContactUs></ContactUs>
         </div>
     );
 };

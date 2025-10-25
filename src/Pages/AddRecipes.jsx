@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Select from "react-select";
+import Swal from "sweetalert2";
 
 
 const AddRecipes = () => {
@@ -24,7 +25,7 @@ const AddRecipes = () => {
         newRecipe.preparationTime = parseInt(stringNum2);
         newRecipe.categories = selectedCategories;
         console.log(newRecipe);
-        
+
 
         fetch('http://localhost:3000/recipes', {
             method: 'POST',
@@ -33,10 +34,20 @@ const AddRecipes = () => {
             },
             body: JSON.stringify(newRecipe)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Your Recipe has been Added",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    form.reset();
+                }
+
+            })
     }
 
     return (
@@ -75,7 +86,7 @@ const AddRecipes = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-3">
                         <fieldset className="fieldset  mx-6">
                             <label className="label font-bold text-[16px] text-primary">Like count</label>
-                            <input type="text" name="likeCount" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" defaultValue={0} />
+                            <input type="number" name="likeCount" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" defaultValue={0} />
                         </fieldset>
                         <fieldset className="fieldset  mx-6">
                             <label className="label font-bold text-[16px] text-primary">Cuisine Type</label>

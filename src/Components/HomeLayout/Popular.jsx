@@ -1,5 +1,5 @@
 import { Fade } from "react-awesome-reveal";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import PopularCard from "../PopularCard";
 
 const Popular = () => {
@@ -15,6 +15,14 @@ const Popular = () => {
             {/* Popular Recipes Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
                 {recipes.map(recipe => <PopularCard key={recipe._id} recipe={recipe}></PopularCard>)}
+            </div>
+            <div className="flex justify-center mt-6">
+                <Link to={'/allRecipes'}>
+                    <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white px-7 py-6">
+                        <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-500 ease-out origin-center"></span>
+                        <span className="relative z-10">All Recipes</span>
+                    </button>
+                </Link>
             </div>
         </div>
     );
