@@ -23,7 +23,7 @@ const Navbar = () => {
         <li><NavLink to={'/addRecipes'} className={'font-semibold text-[18px]'}>Add Recipes</NavLink></li>
     </>
     return (
-        <div className='max-w-7xl mx-auto'>
+        <div className='max-w-7xl mx-auto' id='home'>
             <div className="navbar bg-base-100 shadow-sm drawer-end rounded-xl">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-side">

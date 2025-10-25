@@ -26,6 +26,10 @@
   --base-content: #ffffff; 
 }
 
+html { 
+  scroll-behavior: smooth; 
+}
+
 .active {
     /* color: #d90c00 ; */
     color: #ec6052;
