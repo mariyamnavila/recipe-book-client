@@ -6,9 +6,11 @@ const AddRecipes = () => {
     const [selectedCategories, setSelectedCategories] = useState([]);
 
     const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
+        { value: 'Breakfast', label: 'Breakfast' },
+        { value: 'Lunch', label: 'Lunch' },
+        { value: 'Dinner', label: 'Dinner' },
+        { value: 'Dessert', label: 'Dessert' },
+        { value: 'Vegan', label: 'Vegan' }
     ]
 
     const handleAddRecipes = (e) => {
@@ -35,40 +37,42 @@ const AddRecipes = () => {
                 <form onSubmit={handleAddRecipes}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-3">
                         <fieldset className="fieldset  mx-6">
-                            <label className="label font-bold text-[16px] text-black">Title</label>
+                            <label className="label font-bold text-[16px] text-primary">Title</label>
                             <input type="text" name="title" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" />
                         </fieldset>
                         <fieldset className="fieldset mx-6">
-                            <label className="label font-bold text-[16px] text-black">Instructions</label>
+                            <label className="label font-bold text-[16px] text-primary">Instructions</label>
                             <input type="text" name="instructions" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" />
                         </fieldset>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-3">
                         <fieldset className="fieldset  mx-6">
-                            <label className="label font-bold text-[16px] text-black">Ingredients</label>
+                            <label className="label font-bold text-[16px] text-primary">Ingredients</label>
                             <input type="text" name="ingredients" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" />
                         </fieldset>
                         <fieldset className="fieldset mx-6">
-                            <label className="label font-bold text-[16px] text-black">Preparation Time</label>
+                            <label className="label font-bold text-[16px] text-primary">Preparation Time</label>
                             <input type="number" name="preparationTime" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" />
                         </fieldset>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-3">
                         <fieldset className="fieldset  mx-6">
-                            <label className="label font-bold text-[16px] text-black">Like count</label>
-                            <input type="text" name="likeCount" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" />
+                            <label className="label font-bold text-[16px] text-primary">Like count</label>
+                            <input type="text" name="likeCount" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" defaultValue={0} />
                         </fieldset>
                         <fieldset className="fieldset  mx-6">
-                            <label className="label font-bold text-[16px] text-black">Cuisine Type</label>
-                            <select defaultValue="Pick a color" name="cuisineType" className="px-2 py-3 focus:outline-none border-b w-full" required>
-                                <option disabled={true}>Pick a color</option>
-                                <option>Crimson</option>
-                                <option>Amber</option>
-                                <option>Velvet</option>
+                            <label className="label font-bold text-[16px] text-primary">Cuisine Type</label>
+                            <select defaultValue="Cuisine Type" name="cuisineType" className="px-2 py-3 focus:outline-none border-b w-full" required>
+                                <option disabled={true}>Cuisine Type</option>
+                                <option>Italian</option>
+                                <option>Mexican</option>
+                                <option>Indian</option>
+                                <option>Chinese</option>
+                                <option> Others</option>
                             </select>
                         </fieldset>
                         <fieldset className="fieldset mx-6">
-                            <label className="label font-bold text-[16px] text-black">Categories</label>
+                            <label className="label font-bold text-[16px] text-primary">Categories</label>
                             <Select
                                 options={options}
                                 name="categories"
@@ -84,7 +88,7 @@ const AddRecipes = () => {
                     </div>
                     <div>
                         <fieldset className="fieldset mx-6">
-                            <label className="label font-bold text-[16px] text-black">Photo URL</label>
+                            <label className="label font-bold text-[16px] text-primary">Photo URL</label>
                             <input type="text" name="photoURL" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe photo URL" />
                         </fieldset>
                     </div>

@@ -1,6 +1,22 @@
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/Logo.png';
+import { useEffect, useState } from 'react';
 const Navbar = () => {
+    const [theme, setTheme] = useState('light');
+
+    useEffect(() => {
+        // Get theme from localStorage or default to 'light'
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    }, []);
+
+    const handleThemeToggle = (e) => {
+        const newTheme = e.target.checked ? 'dark' : 'light';
+        setTheme(newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    };
     const links = <>
         <li><NavLink to={'/'} className={'font-semibold text-[18px]'}>Home</NavLink></li>
         <li><NavLink to={'/allRecipes'} className={'font-semibold text-[18px]'}>All Recipes</NavLink></li>
@@ -29,7 +45,13 @@ const Navbar = () => {
                     {/* <a className="btn">Button</a> */}
                     <label className="swap swap-rotate">
                         {/* this hidden checkbox controls the state */}
-                        <input type="checkbox" className="theme-controller" value="dark" />
+                        <input
+                            type="checkbox"
+                            className="theme-controller"
+                            value="dark"
+                            checked={theme === 'dark'}
+                            onChange={handleThemeToggle}
+                        />
 
                         {/* sun icon */}
                         <svg
