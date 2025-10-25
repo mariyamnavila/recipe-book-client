@@ -18,8 +18,25 @@ const AddRecipes = () => {
         const form = e.target;
         const formData = new FormData(form);
         const newRecipe = Object.fromEntries(formData.entries())
+        const stringNum1 = newRecipe.likeCount;
+        const stringNum2 = newRecipe.preparationTime;
+        newRecipe.likeCount = parseInt(stringNum1);
+        newRecipe.preparationTime = parseInt(stringNum2);
         newRecipe.categories = selectedCategories;
         console.log(newRecipe);
+        
+
+        fetch('http://localhost:3000/recipes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newRecipe)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+        })
     }
 
     return (

@@ -1,16 +1,9 @@
 [
     {
         "id": 1,
-        "image": "images/creamy_pasta.jpg",
+        "image": "https://i.postimg.cc/VkcBvX0H/pasta.jpg",
         "title": "Creamy Parmesan Pasta",
-        "ingredients": [
-            "Penne pasta",
-            "Parmesan cheese",
-            "Heavy cream",
-            "Garlic",
-            "Olive oil",
-            "Salt & pepper"
-        ],
+        "ingredients": "Penne pasta,Parmesan cheese,Heavy cream,Garlic,Olive oil,Salt & pepper",
         "instructions": "Boil pasta. Sauté garlic in olive oil. Add cream and Parmesan. Mix pasta into sauce and serve.",
         "cuisineType": "Italian",
         "preparationTime": 25,
@@ -22,16 +15,9 @@
     },
     {
         "id": 2,
-        "image": "images/tandoori_chicken.jpg",
+        "image": "https://i.postimg.cc/RCyQ3zz0/tandoori.jpg",
         "title": "Tandoori Chicken",
-        "ingredients": [
-            "Chicken pieces",
-            "Yogurt",
-            "Tandoori masala",
-            "Garlic paste",
-            "Lemon",
-            "Oil"
-        ],
+        "ingredients": "Chicken pieces,Yogurt,Tandoori masala,Garlic paste,Lemon,Oil",
         "instructions": "Marinate chicken with spices and yogurt. Grill until cooked through and charred.",
         "cuisineType": "Indian",
         "preparationTime": 45,
@@ -43,15 +29,9 @@
     },
     {
         "id": 3,
-        "image": "images/vegan_buddha_bowl.jpg",
+        "image": "https://i.postimg.cc/B681Mv1M/vegan-bowl.jpg",
         "title": "Vegan Buddha Bowl",
-        "ingredients": [
-            "Quinoa",
-            "Chickpeas",
-            "Avocado",
-            "Spinach",
-            "Lemon dressing"
-        ],
+        "ingredients": "Quinoa,Chickpeas,Avocado,Spinach,Lemon dressing",
         "instructions": "Cook quinoa. Arrange with veggies and chickpeas. Drizzle dressing on top.",
         "cuisineType": "Others",
         "preparationTime": 20,
@@ -63,15 +43,9 @@
     },
     {
         "id": 4,
-        "image": "images/sushi_rolls.jpg",
+        "image": "https://i.postimg.cc/vTNqCTPy/sushi.jpg",
         "title": "Classic Sushi Rolls",
-        "ingredients": [
-            "Sushi rice",
-            "Nori sheets",
-            "Cucumber",
-            "Avocado",
-            "Soy sauce"
-        ],
+        "ingredients": "Sushi rice,Nori sheets,Cucumber,Avocado,Soy sauce",
         "instructions": "Spread rice over nori. Add fillings. Roll tightly and slice.",
         "cuisineType": "Chinese",
         "preparationTime": 40,
@@ -83,17 +57,10 @@
     },
     {
         "id": 5,
-        "image": "images/chocolate_cake.jpg",
+        "image": "https://i.postimg.cc/4dMthpq9/dark-chocolate-cake.jpg",
         "title": "Dark Chocolate Cake",
-        "ingredients": [
-            "Flour",
-            "Cocoa powder",
-            "Sugar",
-            "Eggs",
-            "Butter",
-            "Baking powder"
-        ],
-        "instructions": "Combine dry and wet ingredients. Bake until set. Frost as desired.",
+        "ingredients": "Flour,Cocoa powder,Sugar,Eggs,Butter,Baking powder",
+        "instructions": "Combine ingredients. Bake until set. Frost as desired.",
         "cuisineType": "Others",
         "preparationTime": 60,
         "categories": [
@@ -103,15 +70,9 @@
     },
     {
         "id": 6,
-        "image": "images/fried_rice.jpg",
+        "image": "https://i.postimg.cc/pTvgBmSg/Fried-rice.jpg",
         "title": "Chicken Fried Rice",
-        "ingredients": [
-            "Cooked rice",
-            "Chicken",
-            "Vegetables",
-            "Soy sauce",
-            "Eggs"
-        ],
+        "ingredients": "Cooked rice,Chicken,Vegetables,Soy sauce,Eggs",
         "instructions": "Stir-fry chicken and vegetables. Add rice and soy sauce. Mix well.",
         "cuisineType": "Chinese",
         "preparationTime": 30,
@@ -123,15 +84,9 @@
     },
     {
         "id": 7,
-        "image": "images/pancakes.jpg",
+        "image": "https://i.postimg.cc/wx2d0kgS/pancakes.jpg",
         "title": "Fluffy Pancakes",
-        "ingredients": [
-            "Flour",
-            "Baking powder",
-            "Milk",
-            "Eggs",
-            "Butter"
-        ],
+        "ingredients": "Flour,Baking powder,Milk,Eggs,Butter",
         "instructions": "Mix batter. Cook on a griddle until golden brown.",
         "cuisineType": "Others",
         "preparationTime": 15,
@@ -143,15 +98,9 @@
     },
     {
         "id": 8,
-        "image": "images/butter_chicken.jpg",
+        "image": "https://i.postimg.cc/hGTkxL2y/butter-chicken.jpg",
         "title": "Butter Chicken",
-        "ingredients": [
-            "Chicken",
-            "Butter",
-            "Tomato puree",
-            "Cream",
-            "Spices"
-        ],
+        "ingredients": "Chicken,Butter,Tomato puree,Cream,Spices",
         "instructions": "Cook chicken with sauce until rich and creamy. Serve with naan.",
         "cuisineType": "Indian",
         "preparationTime": 50,
@@ -163,15 +112,9 @@
     },
     {
         "id": 9,
-        "image": "images/enchiladas.jpg",
+        "image": "https://i.postimg.cc/VNvSkN4d/Cheesy-Enchiladas.jpg",
         "title": "Cheesy Enchiladas",
-        "ingredients": [
-            "Tortillas",
-            "Cheese",
-            "Beans",
-            "Tomato sauce",
-            "Onion"
-        ],
+        "ingredients": "Tortillas,Cheese,Beans,Tomato sauce,Onion",
         "instructions": "Fill tortillas with beans and cheese. Top with sauce, bake until melted.",
         "cuisineType": "Mexican",
         "preparationTime": 35,
@@ -183,15 +126,9 @@
     },
     {
         "id": 10,
-        "image": "images/biryani.jpg",
+        "image": "https://i.postimg.cc/SRhNCQLs/Chicken-Biryani.jpg",
         "title": "Chicken Biryani",
-        "ingredients": [
-            "Basmati rice",
-            "Chicken",
-            "Biryani masala",
-            "Onion",
-            "Yogurt"
-        ],
+        "ingredients": "Basmati rice,Chicken,Biryani masala,Onion,Yogurt",
         "instructions": "Layer rice and marinated chicken. Cook on low heat until aromatic.",
         "cuisineType": "Indian",
         "preparationTime": 70,
@@ -203,13 +140,9 @@
     },
     {
         "id": 11,
-        "image": "images/fruit_salad.jpg",
+        "image": "https://i.postimg.cc/cCwtG5hR/Fruit-Salad.jpg",
         "title": "Refreshing Fruit Salad",
-        "ingredients": [
-            "Seasonal fruits",
-            "Honey",
-            "Mint leaves"
-        ],
+        "ingredients": "Seasonal fruits,Honey,Mint leaves",
         "instructions": "Chop fruits. Mix with honey and garnish with mint.",
         "cuisineType": "Others",
         "preparationTime": 10,
@@ -222,15 +155,9 @@
     },
     {
         "id": 12,
-        "image": "images/lasagna.jpg",
+        "image": "https://i.postimg.cc/k5JQF9cy/Classic-Beef-Lasagna.jpg",
         "title": "Classic Beef Lasagna",
-        "ingredients": [
-            "Lasagna sheets",
-            "Minced beef",
-            "Cheese",
-            "Tomato sauce",
-            "Herbs"
-        ],
+        "ingredients": "Lasagna sheets,Minced beef,Cheese,Tomato sauce,Herbs",
         "instructions": "Layer beef sauce and cheese between pasta sheets. Bake until golden.",
         "cuisineType": "Italian",
         "preparationTime": 55,
