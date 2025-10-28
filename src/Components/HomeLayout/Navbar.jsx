@@ -3,8 +3,9 @@ import logo from '../../assets/Logo.png';
 import { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthContext';
+import Swal from 'sweetalert2';
 const Navbar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [theme, setTheme] = useState('light');
 
     useEffect(() => {
@@ -20,6 +21,27 @@ const Navbar = () => {
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
     };
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    title: "User logged out Successfully",
+                    icon: "success",
+                    draggable: true,
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+            })
+            .catch(error =>
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${error.message}`,
+                })
+            );
+    }
+
     const links = <>
         <li><NavLink to={'/'} className={'font-semibold text-[18px]'}>Home</NavLink></li>
         <li><NavLink to={'/allRecipes'} className={'font-semibold text-[18px]'}>All Recipes</NavLink></li>
@@ -27,24 +49,38 @@ const Navbar = () => {
     </>
     const buttons = <>
         <li>
-            <div className='lg:hidden flex'>
-                <Link to={'/register'}>
-                    <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
+            {
+                user ? (
+                    <div className='lg:hidden flex'>
+                        <img className='w-10 h-10 rounded-full mr-4' src={user.photoURL} alt={user.displayName} />
+                        <button onClick={() => handleLogOut()} className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
                     ">
-                        {/* px-7 py-6 */}
-                        <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
-                        <span className="relative z-10">Register</span>
-                    </button>
-                </Link>
-                <Link to={'/login'}>
-                    <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white 
+                            {/* px-7 py-6 */}
+                            <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                            <span className="relative z-10">Log Out</span>
+                        </button>
+                    </div>
+                ) : (
+                    <div className='lg:hidden block'>
+                        <Link to={'/register'}>
+                            <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
                     ">
-                        {/* px-7 py-6 */}
-                        <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
-                        <span className="relative z-10">Login</span>
-                    </button>
-                </Link>
-            </div>
+                                {/* px-7 py-6 */}
+                                <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                                <span className="relative z-10">Register</span>
+                            </button>
+                        </Link>
+                        <Link to={'/login'}>
+                            <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white 
+                    ">
+                                {/* px-7 py-6 */}
+                                <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                                <span className="relative z-10">Login</span>
+                            </button>
+                        </Link>
+                    </div>
+                )
+            }
         </li>
     </>;
     return (
@@ -69,26 +105,38 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? (<img className='w-10 h-10 rounded-full mr-4' src={user.photoURL} alt={user.displayName} />) : (<div className='lg:block hidden'>
-                        <Link to={'/register'}>
-                            <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
+                        user ? (
+                            <div className='lg:flex hidden'>
+                                <img className='w-10 h-10 rounded-full mr-4' src={user.photoURL} alt={user.displayName} />
+                                <button onClick={() => handleLogOut()} className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
                     ">
-                                {/* px-7 py-6 */}
-                                <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
-                                <span className="relative z-10">Register</span>
-                            </button>
-                        </Link>
-                        <Link to={'/login'}>
-                            <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white 
+                                    {/* px-7 py-6 */}
+                                    <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                                    <span className="relative z-10">Log Out</span>
+                                </button>
+                            </div>
+                        ) : (
+                            <div className='lg:block hidden'>
+                                <Link to={'/register'}>
+                                    <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
                     ">
-                                {/* px-7 py-6 */}
-                                <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
-                                <span className="relative z-10">Login</span>
-                            </button>
-                        </Link>
-                    </div>)
+                                        {/* px-7 py-6 */}
+                                        <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                                        <span className="relative z-10">Register</span>
+                                    </button>
+                                </Link>
+                                <Link to={'/login'}>
+                                    <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white 
+                    ">
+                                        {/* px-7 py-6 */}
+                                        <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                                        <span className="relative z-10">Login</span>
+                                    </button>
+                                </Link>
+                            </div>
+                        )
                     }
-                     {/* <div className='lg:block hidden'>
+                    {/* <div className='lg:block hidden'>
                         <Link to={'/register'}>
                             <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
                     ">

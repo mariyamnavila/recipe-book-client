@@ -15,7 +15,7 @@ const AddRecipes = () => {
         { value: 'Vegan', label: 'Vegan' }
     ]
 
-    console.log(user?.uid);
+    // console.log(user?.uid);
     const handleAddRecipes = (e) => {
         e.preventDefault();
         const form = e.target;
