@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/Logo.png';
 import { useEffect, useState } from 'react';
 const Navbar = () => {
@@ -22,15 +22,38 @@ const Navbar = () => {
         <li><NavLink to={'/allRecipes'} className={'font-semibold text-[18px]'}>All Recipes</NavLink></li>
         <li><NavLink to={'/addRecipes'} className={'font-semibold text-[18px]'}>Add Recipes</NavLink></li>
     </>
+    const buttons = <>
+        <li>
+            <div className='lg:hidden flex'>
+                <Link to={'/register'}>
+                    <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
+                    ">
+                        {/* px-7 py-6 */}
+                        <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                        <span className="relative z-10">Register</span>
+                    </button>
+                </Link>
+                <Link to={'/login'}>
+                    <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white 
+                    ">
+                        {/* px-7 py-6 */}
+                        <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                        <span className="relative z-10">Login</span>
+                    </button>
+                </Link>
+            </div>
+        </li>
+    </>;
     return (
         <div className='max-w-7xl mx-auto' id='home'>
             <div className="navbar bg-base-100 shadow-sm drawer-end rounded-xl">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-side">
+                <div className="drawer-side z-30">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu bg-base-100 min-h-full w-80 p-4">
                         {/* Sidebar content here */}
                         {links}
+                        {buttons}
                     </ul>
                 </div>
                 <div className="navbar-start">
@@ -42,8 +65,26 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <div className='lg:block hidden'>
+                        <Link to={'/register'}>
+                            <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
+                    ">
+                                {/* px-7 py-6 */}
+                                <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                                <span className="relative z-10">Register</span>
+                            </button>
+                        </Link>
+                        <Link to={'/login'}>
+                            <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white 
+                    ">
+                                {/* px-7 py-6 */}
+                                <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                                <span className="relative z-10">Login</span>
+                            </button>
+                        </Link>
+                    </div>
                     {/* <a className="btn">Button</a> */}
-                    <label className="swap swap-rotate">
+                    <label className="swap swap-rotate mx-1.5">
                         {/* this hidden checkbox controls the state */}
                         <input
                             type="checkbox"

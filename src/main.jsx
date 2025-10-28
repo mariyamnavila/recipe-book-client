@@ -9,6 +9,7 @@ import HomeLayout from './Layouts/HomeLayout';
 import Home from './Pages/Home';
 import AddRecipes from './Pages/AddRecipes';
 import AllRecipes from './Pages/AllRecipes';
+import Register from './Pages/Register';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         path: '/allRecipes',
         loader: () => fetch('http://localhost:3000/recipes/all'),
         Component: AllRecipes
+      },
+      {
+        path: '/register',
+        Component: Register
       },
     ]
   },
