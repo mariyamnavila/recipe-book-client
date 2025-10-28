@@ -8,6 +8,7 @@ import {
 import HomeLayout from './Layouts/HomeLayout';
 import Home from './Pages/Home';
 import AddRecipes from './Pages/AddRecipes';
+import AllRecipes from './Pages/AllRecipes';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
       {
         path: '/addRecipes',
         Component: AddRecipes
+      },
+      {
+        path: '/allRecipes',
+        loader: () => fetch('http://localhost:3000/recipes/all'),
+        Component: AllRecipes
       },
     ]
   },

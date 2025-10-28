@@ -6,11 +6,11 @@ const Footer = () => {
         <div>
             <div>
                 <div>
-                    <footer className="footer sm:footer-horizontal container mx-auto text-base-content p-10">
+                    <footer className="footer border-t border-base-200 sm:footer-horizontal container mx-auto text-base-content p-10">
                         <aside className='mx-auto lg:mx-0'>
                             <img className='w-[250px] md:w-[200px] lg:w-[70px] mx-auto lg:mx-0 mb-2' src={footer} alt="" />
-                            <p className='text-3xl hover:text-[#a11811]'><span className='font-bold'>RECIPE</span> BOOK</p>
-                            <p className='text-xl hover:text-[#a11811]'>recipebook@gmail.com</p>
+                            <p className='text-3xl text-[#d90c00]'><span className='font-bold'>RECIPE</span> BOOK</p>
+                            <p className='text-xl hover:text-[#d90c00]'>recipebook@gmail.com</p>
                             <div className='flex '>
                                 <a href="#home" className='bg-[#ffffff67] p-2 rounded-3xl mr-3 hover:text-[#560400] hover:bg-[#ef9d99]'>
                                     <FaFacebookF className='text-xl ' />
