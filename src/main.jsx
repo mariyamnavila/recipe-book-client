@@ -11,12 +11,13 @@ import AddRecipes from './Pages/AddRecipes';
 import AllRecipes from './Pages/AllRecipes';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
+import AuthProvider from './Provider/AuthProvider';
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: HomeLayout,
-    children:[
+    children: [
       {
         index: true,
         loader: () => fetch('http://localhost:3000/recipes/main'),
@@ -45,6 +46,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

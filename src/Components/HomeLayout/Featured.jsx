@@ -43,7 +43,7 @@ const Featured = () => {
                     }}
                     loop={true}
                 >
-                    {recipes.map(recipe => <SwiperSlide key={recipe._id}>
+                    {recipes?.map(recipe => <SwiperSlide key={recipe._id}>
                         <SingleFeaturedCard recipe={recipe}></SingleFeaturedCard>
                     </SwiperSlide>)}
                 </Swiper>

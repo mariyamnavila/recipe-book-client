@@ -1,21 +1,24 @@
 import { Link } from "react-router-dom";
 import loginImage from '../assets/login.jpg';
 import { FcGoogle } from "react-icons/fc";
+import { Fade } from "react-awesome-reveal";
 
 const Login = () => {
     return (
         <div className="flex justify-center items-center min-h-screen my-8">
             <div>
-                <img className="w-[500px] h-[530px] object-cover lg:block md:hidden shadow-2xl rounded-md" src={loginImage} alt="" />
+                <img className="w-[500px] h-[530px] object-cover lg:block hidden shadow-2xl rounded-md" src={loginImage} alt="" />
             </div>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
-                <p className="font-medium text-xs text-center mb-3 text-secondary">Welcome Back!</p>
-                <h2 className="font-semibold text-2xl text-center mx-5 text-primary">Login your Account</h2>
+                <Fade direction="down" duration={1500} cascade damping={0.3}>
+                    <p className="font-medium text-xs text-center mb-3 text-secondary">Welcome Back!</p>
+                    <h2 className="font-semibold text-2xl text-center mx-5 text-primary">Login your Account</h2>
+                </Fade>
                 {/* <p className="text-xs text-center mt-2">Access to all features. No credit card required.</p> */}
                 <form
                     // onSubmit={handleLogin}
                     className="card-body">
-                        {/* onClick={() => { handleGoogleSignIn(googleProvider) }} */}
+                    {/* onClick={() => { handleGoogleSignIn(googleProvider) }} */}
                     {/* <button  className="btn w-full bg-white flex items-center"><FcGoogle />  Login with Google</button> */}
                     <div className="divider text-xs">Or continue with </div>
                     <fieldset className="fieldset">

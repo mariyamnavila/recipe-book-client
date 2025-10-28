@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Select from "react-select";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Contexts/AuthContext";
 
 
 const AddRecipes = () => {
     const [selectedCategories, setSelectedCategories] = useState([]);
-
+    const { user } = useContext(AuthContext);
     const options = [
         { value: 'Breakfast', label: 'Breakfast' },
         { value: 'Lunch', label: 'Lunch' },
@@ -14,11 +15,14 @@ const AddRecipes = () => {
         { value: 'Vegan', label: 'Vegan' }
     ]
 
+    console.log(user?.uid);
     const handleAddRecipes = (e) => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const newRecipe = Object.fromEntries(formData.entries())
+        const userId = user?.uid || 'guest';
+        newRecipe.userId = userId;
         const stringNum1 = newRecipe.likeCount;
         const stringNum2 = newRecipe.preparationTime;
         newRecipe.likeCount = parseInt(stringNum1);

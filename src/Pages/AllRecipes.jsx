@@ -16,7 +16,7 @@ const AllRecipes = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pl-3 py-10">
                     {
-                        allRecipes.map(recipe => <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>)
+                        allRecipes?.map(recipe => <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>)
                     }
                 </div>
             </div>

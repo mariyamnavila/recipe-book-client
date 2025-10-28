@@ -1,7 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/Logo.png';
 import { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../Contexts/AuthContext';
 const Navbar = () => {
+    const { user } = useContext(AuthContext);
     const [theme, setTheme] = useState('light');
 
     useEffect(() => {
@@ -65,7 +68,8 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className='lg:block hidden'>
+                    {
+                        user ? (<img className='w-10 h-10 rounded-full mr-4' src={user.photoURL} alt={user.displayName} />) : (<div className='lg:block hidden'>
                         <Link to={'/register'}>
                             <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
                     ">
@@ -82,7 +86,24 @@ const Navbar = () => {
                                 <span className="relative z-10">Login</span>
                             </button>
                         </Link>
-                    </div>
+                    </div>)
+                    }
+                     {/* <div className='lg:block hidden'>
+                        <Link to={'/register'}>
+                            <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
+                    ">
+                                <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                                <span className="relative z-10">Register</span>
+                            </button>
+                        </Link>
+                        <Link to={'/login'}>
+                            <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white 
+                    ">
+                                <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                                <span className="relative z-10">Login</span>
+                            </button>
+                        </Link>
+                    </div> */}
                     {/* <a className="btn">Button</a> */}
                     <label className="swap swap-rotate mx-1.5">
                         {/* this hidden checkbox controls the state */}

@@ -14,7 +14,7 @@ const Popular = () => {
             </div>
             {/* Popular Recipes Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
-                {recipes.map(recipe => <PopularCard key={recipe._id} recipe={recipe}></PopularCard>)}
+                {recipes?.map(recipe => <PopularCard key={recipe._id} recipe={recipe}></PopularCard>)}
             </div>
             <div className="flex justify-center mt-6">
                 <Link to={'/allRecipes'}>
