@@ -15,6 +15,7 @@ import AuthProvider from './Provider/AuthProvider';
 import Errorpage from './Pages/ErrorPage';
 import Loading from './Pages/Loading';
 import RecipeDetails from './Pages/RecipeDetails';
+import MyRecipes from './Pages/MyRecipes';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,12 @@ const router = createBrowserRouter([
         path: '/allRecipes',
         loader: () => fetch('http://localhost:3000/recipes/all'),
         Component: AllRecipes,
+        hydrateFallbackElement: <Loading></Loading>
+      },
+      {
+        path: '/myRecipes',
+        loader: () => fetch('http://localhost:3000/recipes/all'),
+        Component: MyRecipes,
         hydrateFallbackElement: <Loading></Loading>
       },
       {

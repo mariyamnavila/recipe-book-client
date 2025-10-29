@@ -27,7 +27,7 @@ const RecipeDetails = () => {
         localStorage.getItem(`liked-${_id}`) === 'true' ? setLiked(true) : setLiked(false);
     }, [likeCount, _id]);
 
-    const arrayOfIngredient = ingredients.split(',');
+    const arrayOfIngredients = ingredients.split(',');
     const handleLikeCount = (e) => {
         if (e.target.checked) {
             fetch(`http://localhost:3000/recipes/${_id}`, {
@@ -39,7 +39,7 @@ const RecipeDetails = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     if (data.modifiedCount > 0) {
                         Swal.fire({
                             title: "You liked this recipe!",
@@ -51,7 +51,7 @@ const RecipeDetails = () => {
                         setLiked(true)
                         setLikeCountState(likeCountState + 1)
                         localStorage.setItem(`liked-${_id}`, true);
-                        console.log("Liked");
+                        // console.log("Liked");
                     }
                 })
         } else {
@@ -64,7 +64,7 @@ const RecipeDetails = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     if (data.modifiedCount > 0) {
                         Swal.fire({
                             title: "You unliked this recipe!",
@@ -76,7 +76,7 @@ const RecipeDetails = () => {
                         setLiked(false)
                         setLikeCountState(likeCountState - 1)
                         localStorage.setItem(`liked-${_id}`, false);
-                        console.log("Unliked");
+                        // console.log("Unliked");
                     }
                 })
         }
@@ -85,11 +85,11 @@ const RecipeDetails = () => {
     }
 
     return (
-        <div className="max-w-6xl mx-auto flex-col md:flex-row flex justify-evenly items-center border border-base-200 rounded-lg mb-10 p-5 my-7">
-            <div>
-                <img className="object-cover w-full h-[400px] rounded-md" src={image} alt="" />
+        <div className="max-w-6xl mx-auto flex-col md:flex-row flex justify-evenly items-stretch border border-base-200 rounded-lg mb-10 p-5 my-7">
+            <div className="md:w-1/2 shrink-0 py-10">
+                <img className="object-cover w-full h-full rounded-md" src={image} alt="" />
             </div>
-            <div className="px-10 py-10">
+            <div className="px-10 py-10 flex flex-col grow">
                 <h2 className="text-4xl font-bold text-primary mb-4">{title}</h2>
                 <div>
                     <h3 className="text-2xl font-semibold text-primary mb-1.5 flex items-center"> <MdOutlineChecklist className="mr-2 text-primary" /> Instructions:</h3>
@@ -98,7 +98,7 @@ const RecipeDetails = () => {
                 <div className="mb-1">
                     <h3 className="text-2xl font-semibold text-primary mb-2 flex items-center"><GiForkKnifeSpoon className="mr-2 text-primary" /> Ingredients:</h3>
                     <ul className="list-disc list-inside">
-                        {arrayOfIngredient.map((ingredient, index) => (
+                        {arrayOfIngredients.map((ingredient, index) => (
                             <li key={index} className="text-base-200">{ingredient}</li>
                         ))}
                     </ul>

@@ -58,7 +58,7 @@ const AddRecipes = () => {
         <div>
             <div className="bg-[url('./assets/addRecipeBanner.jpg')] bg-cover bg-fixed ">
                 <div className="bg-[#ffffff7c]">
-                    <div className="py-14 max-w-7xl mx-auto ml-3 text-center">
+                    <div className="py-14 max-w-7xl mx-auto text-center">
                         <h2 className="text-4xl font-semibold text-[#150100]">Add Recipes</h2>
                         <p className="text-[#410300]">Add your gourmet creations to our curated recipe library and showcase the art of exceptional cooking.</p>
                     </div>
@@ -70,27 +70,27 @@ const AddRecipes = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-3">
                         <fieldset className="fieldset  mx-6">
                             <label className="label font-bold text-[16px] text-primary">Title</label>
-                            <input type="text" name="title" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" />
+                            <input type="text" name="title" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" required/>
                         </fieldset>
                         <fieldset className="fieldset mx-6">
                             <label className="label font-bold text-[16px] text-primary">Instructions</label>
-                            <input type="text" name="instructions" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" />
+                            <input type="text" name="instructions" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe instructions" required/>
                         </fieldset>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-3">
                         <fieldset className="fieldset  mx-6">
                             <label className="label font-bold text-[16px] text-primary">Ingredients</label>
-                            <input type="text" name="ingredients" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" />
+                            <input type="text" name="ingredients" className="px-2 py-3 focus:outline-none border-b w-full" required placeholder="Your recipe ingredients" />
                         </fieldset>
                         <fieldset className="fieldset mx-6">
                             <label className="label font-bold text-[16px] text-primary">Preparation Time</label>
-                            <input type="number" name="preparationTime" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" />
+                            <input type="number" name="preparationTime" className="px-2 py-3 focus:outline-none border-b w-full" required placeholder="Your recipe preparation time" />
                         </fieldset>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-3">
                         <fieldset className="fieldset  mx-6">
                             <label className="label font-bold text-[16px] text-primary">Like count</label>
-                            <input type="number" name="likeCount" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" defaultValue={0} />
+                            <input type="number" name="likeCount" className="px-2 py-3 focus:outline-none border-b w-full" required placeholder="Your recipe like count" defaultValue={0} />
                         </fieldset>
                         <fieldset className="fieldset  mx-6">
                             <label className="label font-bold text-[16px] text-primary">Cuisine Type</label>
@@ -115,13 +115,13 @@ const AddRecipes = () => {
                                 }
                                 required
                             />
-                            {/* <input type="text" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe title" /> */}
+                            {/* <input type="text" className="px-2 py-3 focus:outline-none border-b w-full" required placeholder="Your recipe title" /> */}
                         </fieldset>
                     </div>
                     <div>
                         <fieldset className="fieldset mx-6">
                             <label className="label font-bold text-[16px] text-primary">Photo URL</label>
-                            <input type="text" name="image" className="px-2 py-3 focus:outline-none border-b w-full" placeholder="Your recipe photo URL" />
+                            <input type="text" name="image" className="px-2 py-3 focus:outline-none border-b w-full" required placeholder="Your recipe photo URL" />
                         </fieldset>
                     </div>
                     <button className="btn bg-[#e03c32] text-white my-3 mx-auto block">Add Recipe</button>

@@ -17,7 +17,6 @@ const Navbar = () => {
 
     const handleThemeToggle = (e) => {
         const newTheme = e.target.checked ? 'dark' : 'light';
-        console.log(e.target.checked);
         setTheme(newTheme);
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
@@ -48,6 +47,7 @@ const Navbar = () => {
         <li><NavLink to={'/'} className={'font-semibold text-[18px]'}>Home</NavLink></li>
         <li><NavLink to={'/allRecipes'} className={'font-semibold text-[18px]'}>All Recipes</NavLink></li>
         <li><NavLink to={'/addRecipes'} className={'font-semibold text-[18px]'}>Add Recipes</NavLink></li>
+        <li><NavLink to={'/myRecipes'} className={'font-semibold text-[18px]'}>My Recipes</NavLink></li>
     </>
     const buttons = <>
         <li>

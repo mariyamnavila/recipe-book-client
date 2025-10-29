@@ -7,7 +7,7 @@ const AllRecipes = () => {
         <div>
             <div className="bg-[url('./assets/AllRecipesBanner.JPG')] bg-cover bg-fixed ">
                 <div className="bg-[#2222227c]">
-                    <div className="py-14 max-w-7xl mx-auto ml-3 text-center">
+                    <div className="py-14 max-w-7xl mx-auto text-center">
                         <h2 className="text-4xl font-semibold text-[#fbe6e5]">All Recipes</h2>
                         <p className="text-[#fbe6e5]">Browse an extensive collection of carefully curated recipes, offering a world of flavors for every mood, moment, and appetite.</p>
                     </div>
