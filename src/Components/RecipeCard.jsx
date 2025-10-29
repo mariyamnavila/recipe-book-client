@@ -21,7 +21,7 @@ const RecipeCard = ({ recipe }) => {
                     <p className="font-medium text-base-200 flex items-center"> <FaRegHeart className="mr-2" /> {likeCount} </p>
                 </div>
                 <div>
-                    <Link to={`/recipes/${_id}`}>
+                    <Link to={`/recipeDetails/${_id}`}>
                         <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white w-full mt-4
                     ">
                             {/* px-7 py-6 */}

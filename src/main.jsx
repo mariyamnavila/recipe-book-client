@@ -13,6 +13,8 @@ import Register from './Pages/Register';
 import Login from './Pages/Login';
 import AuthProvider from './Provider/AuthProvider';
 import Errorpage from './Pages/ErrorPage';
+import Loading from './Pages/Loading';
+import RecipeDetails from './Pages/RecipeDetails';
 
 const router = createBrowserRouter([
   {
@@ -23,7 +25,8 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: () => fetch('http://localhost:3000/recipes/main'),
-        Component: Home
+        Component: Home,
+        hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: '/addRecipes',
@@ -32,7 +35,14 @@ const router = createBrowserRouter([
       {
         path: '/allRecipes',
         loader: () => fetch('http://localhost:3000/recipes/all'),
-        Component: AllRecipes
+        Component: AllRecipes,
+        hydrateFallbackElement: <Loading></Loading>
+      },
+      {
+        path: '/recipeDetails/:id',
+        loader: ({ params }) => fetch(`http://localhost:3000/recipes/${params.id}`),
+        Component: RecipeDetails,
+        hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: '/register',

@@ -42,6 +42,7 @@ const Navbar = () => {
             );
     }
 
+
     const links = <>
         <li><NavLink to={'/'} className={'font-semibold text-[18px]'}>Home</NavLink></li>
         <li><NavLink to={'/allRecipes'} className={'font-semibold text-[18px]'}>All Recipes</NavLink></li>
@@ -51,14 +52,17 @@ const Navbar = () => {
         <li>
             {
                 user ? (
-                    <div className='lg:hidden flex'>
-                        <img className='w-10 h-10 rounded-full mr-4' src={user.photoURL} alt={user.displayName} />
-                        <button onClick={() => handleLogOut()} className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
+                    <div className="dropdown dropdown-end">
+                        <div tabIndex={0} role="button" className=""><img className='w-10 h-10 rounded-full mr-4' src={user.photoURL} alt={user.displayName} /></div>
+                        <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                            <li className='text-center text-2xl font-semibold'>{user.displayName}</li>
+                            <li className='text-center'><button onClick={() => handleLogOut()} className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white
                     ">
-                            {/* px-7 py-6 */}
-                            <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
-                            <span className="relative z-10">Log Out</span>
-                        </button>
+                                {/* px-7 py-6 */}
+                                <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                                <span className="relative z-10">Log Out</span>
+                            </button></li>
+                        </ul>
                     </div>
                 ) : (
                     <div className='lg:hidden block'>
@@ -107,13 +111,18 @@ const Navbar = () => {
                     {
                         user ? (
                             <div className='lg:flex hidden'>
-                                <img className='w-10 h-10 rounded-full mr-4' src={user.photoURL} alt={user.displayName} />
-                                <button onClick={() => handleLogOut()} className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
+                                <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className=""><img className='w-10 h-10 rounded-full mr-4' src={user.photoURL} alt={user.displayName} /></div>
+                                    <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                                        <li className='text-center text-2xl font-semibold'>{user.displayName}</li>
+                                        <li className='text-center'><button onClick={() => handleLogOut()} className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white
                     ">
-                                    {/* px-7 py-6 */}
-                                    <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
-                                    <span className="relative z-10">Log Out</span>
-                                </button>
+                                            {/* px-7 py-6 */}
+                                            <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
+                                            <span className="relative z-10">Log Out</span>
+                                        </button></li>
+                                    </ul>
+                                </div>
                             </div>
                         ) : (
                             <div className='lg:block hidden'>
@@ -136,23 +145,6 @@ const Navbar = () => {
                             </div>
                         )
                     }
-                    {/* <div className='lg:block hidden'>
-                        <Link to={'/register'}>
-                            <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white mr-2
-                    ">
-                                <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
-                                <span className="relative z-10">Register</span>
-                            </button>
-                        </Link>
-                        <Link to={'/login'}>
-                            <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white 
-                    ">
-                                <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
-                                <span className="relative z-10">Login</span>
-                            </button>
-                        </Link>
-                    </div> */}
-                    {/* <a className="btn">Button</a> */}
                     <label className="swap swap-rotate mx-1.5">
                         {/* this hidden checkbox controls the state */}
                         <input
