@@ -12,11 +12,13 @@ import AllRecipes from './Pages/AllRecipes';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
 import AuthProvider from './Provider/AuthProvider';
+import Errorpage from './Pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: HomeLayout,
+    errorElement: <Errorpage></Errorpage>,
     children: [
       {
         index: true,
