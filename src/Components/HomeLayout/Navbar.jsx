@@ -17,6 +17,7 @@ const Navbar = () => {
 
     const handleThemeToggle = (e) => {
         const newTheme = e.target.checked ? 'dark' : 'light';
+        console.log(e.target.checked);
         setTheme(newTheme);
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
@@ -150,7 +151,7 @@ const Navbar = () => {
                         <input
                             type="checkbox"
                             className="theme-controller"
-                            value="dark"
+                            // value="dark"
                             checked={theme === 'dark'}
                             onChange={handleThemeToggle}
                         />
