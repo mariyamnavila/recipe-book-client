@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImage from '../assets/login.jpg';
 import { FcGoogle } from "react-icons/fc";
 import { Fade } from "react-awesome-reveal";
@@ -9,8 +9,9 @@ import Swal from "sweetalert2";
 const Login = () => {
     const [error, setError] = useState(null);
     const { signin, setUser, user, setLoading, googleProvider, signInWithGoogle } = use(AuthContext);
-    const navigate = useNavigate()
-    // console.log(user);
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location,location.state);
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -28,6 +29,7 @@ const Login = () => {
                 });
                 setUser(loggedUser);
                 form.reset();
+                navigate(`${location.state ? location.state : '/'}`);
             })
             .catch(error => {
                 setError(error.message);
@@ -41,7 +43,7 @@ const Login = () => {
                 const name = result?.user?.displayName
                 const photo = result?.user?.photoURL
                 setUser({ ...user, displayName: name, photoURL: photo })
-                navigate('/')
+                navigate(`${location.state ? location.state : '/'}`)
             })
             .catch((error) => {
                 setError(error.code)

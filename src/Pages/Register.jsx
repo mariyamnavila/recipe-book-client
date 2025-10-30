@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImage from '../assets/login.jpg';
 import { use, useState } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
@@ -8,7 +8,8 @@ import { FcGoogle } from "react-icons/fc";
 const Register = () => {
     const [error, setError] = useState([])
     const { createUser, setUser, user, setLoading, updateUser, signInWithGoogle, googleProvider } = use(AuthContext)
-    const navigate = useNavigate()
+    const location = useLocation();
+    const navigate = useNavigate();
     const handleRegister = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -26,7 +27,7 @@ const Register = () => {
                             timer: 1500,
                             showConfirmButton: false
                         });
-                        navigate('/')
+                        navigate(`${location.state ? location.state : '/'}`);
                     })
                     .catch((error) => {
                         setError(error);
@@ -46,6 +47,7 @@ const Register = () => {
                 const name = result?.user?.displayName
                 const photo = result?.user?.photoURL
                 setUser({ ...user, displayName: name, photoURL: photo })
+                navigate(`${location.state ? location.state : '/'}`);
             })
             .catch((error) => {
                 setError(error.code)
