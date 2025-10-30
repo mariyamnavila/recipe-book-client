@@ -66,13 +66,13 @@ const RecipeDetails = () => {
                 .then(data => {
                     // console.log(data);
                     if (data.modifiedCount > 0) {
-                        Swal.fire({
-                            title: "You unliked this recipe!",
-                            icon: "error",
-                            draggable: true,
-                            timer: 1500,
-                            showConfirmButton: false
-                        });
+                        // Swal.fire({
+                        //     title: "You unliked this recipe!",
+                        //     icon: "error",
+                        //     draggable: true,
+                        //     timer: 1500,
+                        //     showConfirmButton: false
+                        // });
                         setLiked(false)
                         setLikeCountState(likeCountState - 1)
                         localStorage.setItem(`liked-${_id}`, false);

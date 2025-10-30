@@ -115,7 +115,6 @@ const AddRecipes = () => {
                                 }
                                 required
                             />
-                            {/* <input type="text" className="px-2 py-3 focus:outline-none border-b w-full" required placeholder="Your recipe title" /> */}
                         </fieldset>
                     </div>
                     <div>

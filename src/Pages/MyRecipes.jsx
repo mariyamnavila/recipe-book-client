@@ -1,16 +1,23 @@
-import { use } from "react";
+import { use, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthContext";
 import MyRecipeCard from "../Components/MyRecipeCard";
 
 
 const MyRecipes = () => {
+    const [myRecipes, setMyRecipes] = useState([])
     const recipes = useLoaderData();
     const { user } = use(AuthContext);
-    const userId = user?.uid || 'guest';
-    const userRecipes = recipes.filter(recipe => recipe.userId === userId);
-    console.log(user?.uid);
-    console.log(userRecipes);
+    // const userId = user?.uid || 'guest';
+    useEffect(() => {
+        if (!user) {
+            setMyRecipes([]);
+            return;
+        }
+        const userRecipes = recipes.filter(recipe => recipe.userId === user.uid);
+        setMyRecipes(userRecipes)
+    }, [recipes, user]);
+    
     return (
         <div className="">
             <div className="bg-[url('./assets/myRecipesBanner.jpg')] bg-center bg-cover bg-fixed ">
@@ -23,11 +30,11 @@ const MyRecipes = () => {
             </div>
             <div className="max-w-7xl mx-auto">
                 {
-                    userRecipes.length > 0 ? (
+                    myRecipes.length > 0 ? (
                         <div className="pl-3 py-10">
                             {
-                                userRecipes.map(recipe => (
-                                   <MyRecipeCard key={recipe._id} recipe={recipe}></MyRecipeCard> 
+                                myRecipes.map(recipe => (
+                                    <MyRecipeCard key={recipe._id} recipe={recipe}></MyRecipeCard>
                                 ))
                             }
                         </div>
