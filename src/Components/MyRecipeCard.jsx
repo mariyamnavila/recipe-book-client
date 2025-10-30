@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import Select from "react-select";
 import { AuthContext } from "../Contexts/AuthContext";
+import Swal from "sweetalert2";
 
-const MyRecipeCard = ({ recipe }) => {
+const MyRecipeCard = ({ recipe, handleDeleteRecipe }) => {
     const { user } = useContext(AuthContext);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const { _id,
@@ -50,7 +51,7 @@ const MyRecipeCard = ({ recipe }) => {
 
         fetch(`http://localhost:3000/recipes/${_id}`, {
             method: 'PUT',
-            headers: {  
+            headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(updateRecipe)
@@ -59,7 +60,14 @@ const MyRecipeCard = ({ recipe }) => {
             .then(data => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
-                    alert('Recipe updated successfully');
+                    Swal.fire({
+                        title: 'Recipe updated successfully',
+                        icon: "success",
+                        draggable: true,
+                        timer: 1500,
+                        showConfirmButton: false,
+                        topLayer: true,
+                    });
                 }
             })
 
@@ -153,15 +161,14 @@ const MyRecipeCard = ({ recipe }) => {
                                             <label className="block font-semibold mb-1">Like Count:</label>
                                             <input name="likeCount" type="number" defaultValue={likeCount} className="input input-bordered w-full" />
                                         </fieldset>
-                                        <button type="submit" onClick={() => document.getElementById('update_modal').showModal()} className="btn relative overflow-hidden group bg-[#d97900] border border-[#d97900]  text-white mr-2">
-                                            <span className="absolute inset-0 bg-[#8d4e00] transform scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></span>
-                                            <span className="relative z-10">Save changes</span>
+                                        <button type="submit" onClick={() => document.getElementById('update_modal').showModal()} className="btn bg-[#d97900] border border-[#d97900]  text-white">
+                                            Save Changes
                                         </button>
                                     </form>
                                 </div>
                             </div>
                         </dialog>
-                        <button className="btn relative overflow-hidden group bg-white mr-2 text-red-600 hover:text-white border border-red-600">
+                        <button onClick={() => { handleDeleteRecipe(_id) }} className="btn relative overflow-hidden group bg-white mr-2 text-red-600 hover:text-white border border-red-600">
                             <span className="absolute inset-0 bg-red-600 transform scale-0 group-hover:scale-100 transition-transform duration-500 ease-out origin-center "></span>
                             <span className="relative z-10 "><MdDeleteOutline className="hover:text-white text-lg" /></span>
                         </button>
