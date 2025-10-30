@@ -15,7 +15,6 @@ const AddRecipes = () => {
         { value: 'Vegan', label: 'Vegan' }
     ]
 
-    // console.log(user?.uid);
     const handleAddRecipes = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -28,7 +27,6 @@ const AddRecipes = () => {
         newRecipe.likeCount = parseInt(stringNum1);
         newRecipe.preparationTime = parseInt(stringNum2);
         newRecipe.categories = selectedCategories;
-        console.log(newRecipe);
 
 
         fetch('http://localhost:3000/recipes', {
@@ -40,7 +38,6 @@ const AddRecipes = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         icon: "success",

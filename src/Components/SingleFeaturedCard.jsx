@@ -4,7 +4,6 @@ import { LuCookingPot } from "react-icons/lu";
 
 const SingleFeaturedCard = ({ recipe }) => {
     const { title, likeCount, preparationTime, cuisineType,image } = recipe
-    // console.log(image);
     return (
         <div className="p-4 rounded-xl border border-base-200 mx-7">
             <img className="object-cover w-[400px] h-[200px] rounded-lg" src={image} alt="" />

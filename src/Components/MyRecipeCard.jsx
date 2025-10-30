@@ -47,7 +47,6 @@ const MyRecipeCard = ({ recipe, handleDeleteRecipe }) => {
         updateRecipe.categories = selectedCategories.length
             ? selectedCategories
             : categories;
-        console.log(updateRecipe);
 
         fetch(`http://localhost:3000/recipes/${_id}`, {
             method: 'PUT',
@@ -58,7 +57,6 @@ const MyRecipeCard = ({ recipe, handleDeleteRecipe }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Recipe updated successfully',

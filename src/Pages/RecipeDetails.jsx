@@ -39,7 +39,6 @@ const RecipeDetails = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    // console.log(data);
                     if (data.modifiedCount > 0) {
                         Swal.fire({
                             title: "You liked this recipe!",
@@ -51,7 +50,6 @@ const RecipeDetails = () => {
                         setLiked(true)
                         setLikeCountState(likeCountState + 1)
                         localStorage.setItem(`liked-${_id}`, true);
-                        // console.log("Liked");
                     }
                 })
         } else {
@@ -64,7 +62,6 @@ const RecipeDetails = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    // console.log(data);
                     if (data.modifiedCount > 0) {
                         // Swal.fire({
                         //     title: "You unliked this recipe!",
@@ -76,7 +73,6 @@ const RecipeDetails = () => {
                         setLiked(false)
                         setLikeCountState(likeCountState - 1)
                         localStorage.setItem(`liked-${_id}`, false);
-                        // console.log("Unliked");
                     }
                 })
         }

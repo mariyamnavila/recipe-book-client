@@ -11,7 +11,6 @@ const Login = () => {
     const { signin, setUser, user, setLoading, googleProvider, signInWithGoogle } = use(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
-    console.log(location,location.state);
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
