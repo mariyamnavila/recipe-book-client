@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/recipes/main'),
+        loader: () => fetch('https://recipe-book-server-gamma-opal.vercel.app/recipes/main'),
         Component: Home,
         hydrateFallbackElement: <Loading></Loading>
       },
@@ -36,19 +36,22 @@ const router = createBrowserRouter([
       },
       {
         path: '/allRecipes',
-        loader: () => fetch('http://localhost:3000/recipes/all'),
+        loader: () => fetch('https://recipe-book-server-gamma-opal.vercel.app/recipes/all'),
         Component: AllRecipes,
         hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: '/myRecipes',
-        loader: () => fetch('http://localhost:3000/recipes/all'),
-        element: <PrivateRoute><MyRecipes></MyRecipes></PrivateRoute>,
+        element: <PrivateRoute><MyRecipes /></PrivateRoute>,
+        loader: async () => {
+          const res = await fetch('https://recipe-book-server-gamma-opal.vercel.app/recipes/all');
+          return res.json();
+        },
         hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: '/recipeDetails/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/recipes/${params.id}`),
+        loader: ({ params }) => fetch(`https://recipe-book-server-gamma-opal.vercel.app/recipes/${params.id}`),
         element: <PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>,
         hydrateFallbackElement: <Loading></Loading>
       },

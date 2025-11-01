@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoIosTimer, IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import { LuCookingPot } from "react-icons/lu";
 import Rating from "react-rating";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { BiCategory } from "react-icons/bi";
 import { MdOutlineChecklist } from "react-icons/md";
 import { GiForkKnifeSpoon } from "react-icons/gi";
+import { AuthContext } from "../Contexts/AuthContext";
 
 const RecipeDetails = () => {
     const [liked, setLiked] = useState(false)
     const [likeCountState, setLikeCountState] = useState(0);
+    const { user } = useContext(AuthContext);
     const { _id,
         image,
         title,
@@ -30,7 +32,7 @@ const RecipeDetails = () => {
     const arrayOfIngredients = ingredients.split(',');
     const handleLikeCount = (e) => {
         if (e.target.checked) {
-            fetch(`http://localhost:3000/recipes/${_id}`, {
+            fetch(`https://recipe-book-server-gamma-opal.vercel.app/recipes/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
@@ -50,10 +52,37 @@ const RecipeDetails = () => {
                         setLiked(true)
                         setLikeCountState(likeCountState + 1)
                         localStorage.setItem(`liked-${_id}`, true);
+
+                        const likedRecipe = {
+                            recipeId: _id,
+                            userId: user?.uid,
+                            image: image,
+                            title: title,
+                            instructions: instructions,
+                            ingredients: ingredients,
+                            cuisineType: cuisineType,
+                            preparationTime: preparationTime,
+                            categories: categories,
+                            likeCount: likeCount
+                        };
+
+                        fetch(`https://recipe-book-server-gamma-opal.vercel.app/recipes/likedRecipes`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(likedRecipe)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data);
+                            });
                     }
                 })
+
+
         } else {
-            fetch(`http://localhost:3000/recipes/${_id}`, {
+            fetch(`https://recipe-book-server-gamma-opal.vercel.app/recipes/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
@@ -73,6 +102,14 @@ const RecipeDetails = () => {
                         setLiked(false)
                         setLikeCountState(likeCountState - 1)
                         localStorage.setItem(`liked-${_id}`, false);
+
+                        fetch(`https://recipe-book-server-gamma-opal.vercel.app/recipes/likedRecipes/${_id}/${user?.uid}`, {
+                            method: 'DELETE',
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data);
+                            });
                     }
                 })
         }
@@ -134,19 +171,17 @@ const RecipeDetails = () => {
                         </div>
                     </div>
                     <p >
-                        {likeCountState} people liked this recipe!</p>
+                        {likeCountState} people liked this recipe!
+                    </p>
                 </div>
-                {/* <div>
-                    <p className="flex items-center">
-                        <Rating
-                            stop={1}
-                            fullSymbol={<IoMdHeart className="text-red-500 text-2xl" />}
-                            emptySymbol={<IoMdHeartEmpty className="text-red-500 text-2xl" />}
-                            className="mt-1.5 mr-2"
-                            onClick={() => handleLikeCount()}
-                        />
-                        {likeCountState} people liked this recipe!</p>
-                </div> */}
+                <div className="my-3">
+                    <Link to={'/allRecipes'}>
+                    <button className="btn relative overflow-hidden group bg-[#c30a00] border border-[#c30a00] text-xl text-white px-7 py-6">
+                        <span className="absolute inset-0 bg-[#008000] transform scale-0 group-hover:scale-100 transition-transform duration-500 ease-out origin-center"></span>
+                        <span className="relative z-10">Back to all recipes</span>
+                    </button>
+                    </Link>
+                </div>
             </div>
         </div>
     );

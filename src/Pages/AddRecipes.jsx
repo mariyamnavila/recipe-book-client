@@ -20,8 +20,7 @@ const AddRecipes = () => {
         const form = e.target;
         const formData = new FormData(form);
         const newRecipe = Object.fromEntries(formData.entries())
-        const userId = user?.uid || 'guest';
-        newRecipe.userId = userId;
+        newRecipe.userId = user.uid; // Add this line
         const stringNum1 = newRecipe.likeCount;
         const stringNum2 = newRecipe.preparationTime;
         newRecipe.likeCount = parseInt(stringNum1);
@@ -29,7 +28,7 @@ const AddRecipes = () => {
         newRecipe.categories = selectedCategories;
 
 
-        fetch('http://localhost:3000/recipes', {
+        fetch('https://recipe-book-server-gamma-opal.vercel.app/recipes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -1,23 +1,42 @@
-import { use, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
 import MyRecipeCard from "../Components/MyRecipeCard";
 import Swal from "sweetalert2";
-
+import Loading from "./Loading";
+import { useLoaderData } from "react-router-dom";
 
 const MyRecipes = () => {
-    const [myRecipes, setMyRecipes] = useState([])
-    const recipes = useLoaderData();
-    const { user } = use(AuthContext);
-    // const userId = user?.uid || 'guest';
+    const allRecipes = useLoaderData();
+    const [myRecipes, setMyRecipes] = useState([]);
+    const [loadingData, setLoadingData] = useState(true);
+    const { user } = useContext(AuthContext);
+
     useEffect(() => {
-        if (!user) {
+        if (!user?.uid) {
             setMyRecipes([]);
+            setLoadingData(false);
             return;
         }
-        const userRecipes = recipes.filter(recipe => recipe.userId === user.uid);
-        setMyRecipes(userRecipes)
-    }, [recipes, user]);
+        const userRecipes = allRecipes.filter(recipe => recipe.userId === user.uid);
+        setMyRecipes(userRecipes);
+        setLoadingData(false);
+    }, [user?.uid, allRecipes]);
+
+    const handleUpdateInParent = () => {
+        if (!user) return;
+        setLoadingData(true);
+        fetch(`https://recipe-book-server-gamma-opal.vercel.app/recipes/all`, { cache: 'no-store' })
+            .then(res => res.json())
+            .then(data => {
+                const userRecipes = data.filter(recipe => recipe.userId === user.uid);
+                setMyRecipes(userRecipes);
+                setLoadingData(false);
+            });
+    };
+
+    if (loadingData) {
+        return <Loading />;
+    }
 
     const handleDeleteRecipe = (id) => {
         // Implement the delete logic here
@@ -31,7 +50,7 @@ const MyRecipes = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/recipes/${id}`, {
+                fetch(`https://recipe-book-server-gamma-opal.vercel.app/recipes/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -63,11 +82,16 @@ const MyRecipes = () => {
             </div>
             <div className="max-w-7xl mx-auto">
                 {
-                    myRecipes.length > 0 ? (
+                    myRecipes?.length > 0 ? (
                         <div className="pl-3 py-10">
                             {
-                                myRecipes.map(recipe => (
-                                    <MyRecipeCard key={recipe._id} recipe={recipe} handleDeleteRecipe={handleDeleteRecipe}></MyRecipeCard>
+                                myRecipes?.map(recipe => (
+                                    <MyRecipeCard
+                                        key={recipe._id}
+                                        recipe={recipe}
+                                        handleDeleteRecipe={handleDeleteRecipe}
+                                        handleUpdateInParent={handleUpdateInParent}
+                                    ></MyRecipeCard>
                                 ))
                             }
                         </div>

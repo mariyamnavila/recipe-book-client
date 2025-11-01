@@ -8,8 +8,8 @@ const Cooking = () => {
     return (
         <div className="bg-[url('./assets/cookingBanner.jpg')] bg-cover bg-fixed">
             <div className="bg-[#000000a1]">
-                <div className="py-14 max-w-7xl mx-auto ml-3 flex flex-col lg:flex-row items-center">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="py-14 max-w-7xl mx-auto flex flex-col lg:flex-row items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ml-3">
                         <Slide direction="left" fraction={0.8} cascade damping={0.3} triggerOnce>
                             <div className="space-y-3">
                                 <IoFastFoodOutline className="text-[#ec6052] text-6xl" />

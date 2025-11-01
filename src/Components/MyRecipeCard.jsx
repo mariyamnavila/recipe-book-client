@@ -4,7 +4,7 @@ import Select from "react-select";
 import { AuthContext } from "../Contexts/AuthContext";
 import Swal from "sweetalert2";
 
-const MyRecipeCard = ({ recipe, handleDeleteRecipe }) => {
+const MyRecipeCard = ({ recipe, handleDeleteRecipe, handleUpdateInParent }) => {
     const { user } = useContext(AuthContext);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const { _id,
@@ -48,7 +48,7 @@ const MyRecipeCard = ({ recipe, handleDeleteRecipe }) => {
             ? selectedCategories
             : categories;
 
-        fetch(`http://localhost:3000/recipes/${_id}`, {
+        fetch(`https://recipe-book-server-gamma-opal.vercel.app/recipes/${_id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -66,6 +66,7 @@ const MyRecipeCard = ({ recipe, handleDeleteRecipe }) => {
                         showConfirmButton: false,
                         topLayer: true,
                     });
+                    handleUpdateInParent();
                 }
             })
 
