@@ -74,8 +74,8 @@ const MyRecipeCard = ({ recipe, handleDeleteRecipe, handleUpdateInParent }) => {
 
     return (
         <div className="mx-2 mb-4 p-5 border border-base-200 rounded-lg hover:shadow-lg transform transition duration-300 hover:-translate-y-1 ">
-            <div className="flex flex-col md:flex-row">
-                <img className="w-[400px] grow object-cover mr-5 rounded-lg" src={image} alt="" />
+            <div className="flex flex-col md:flex-row items-stretch">
+                <img className="w-full md:w-[400px] object-cover mr-5 rounded-lg" src={image} alt="" />
                 <div className="flex flex-col grow">
                     <h3 className="text-2xl font-semibold mt-3 md:mt-0">{title}</h3>
                     <div className="my-1 ">

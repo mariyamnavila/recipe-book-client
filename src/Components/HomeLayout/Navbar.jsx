@@ -51,6 +51,7 @@ const Navbar = () => {
                 <>
                     <li><NavLink to={'/addRecipes'} className={'font-semibold text-[18px]'}>Add Recipes</NavLink></li>
                     <li><NavLink to={'/myRecipes'} className={'font-semibold text-[18px]'}>My Recipes</NavLink></li>
+                    <li><NavLink to={'/myWishlist'} className={'font-semibold text-[18px]'}>My WishList</NavLink></li>
                 </>
             ) : (
                 <>
